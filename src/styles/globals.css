@@ -74,13 +74,41 @@ blockquote p:last-child {
   margin-bottom: 0;
 }
 
-.lazy-list img {
-  opacity: 1;
-  transition: opacity 0.3s;
+.progress {
+  margin-bottom: 48px;
 }
 
-.lazy-list img[data-src] {
-  opacity: 0;
+.progress label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+.progress progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  width: 100%;
+  height: 4px;
+  margin: 0;
+  padding: 0;
+  border-radius: 2px;
+  margin-bottom: 4px;
+  background-color: var(--body-background-alt);
+}
+
+.progress progress::-webkit-progress-bar {
+  border-radius: 2px;
+  background-color: var(--body-background-alt);
+}
+.progress progress::-webkit-progress-value {
+  border-radius: 2px;
+  background-color: var(--body-foreground);
+}
+.progress progress::-moz-progress-bar {
+  border-radius: 2px;
+  background-color: var(--body-foreground);
 }
 
 hr {
@@ -243,6 +271,19 @@ ul li {
   padding: 0;
   margin: 0 0 2.4rem 0;
   line-height: 1.6;
+}
+
+ul.list--inline {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul.list--inline li {
+  margin: 0 1.6rem 1.6rem 0;
+}
+
+.readingList ul li p {
+  margin: 0;
 }
 
 /* 

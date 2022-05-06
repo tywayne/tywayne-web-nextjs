@@ -2,24 +2,20 @@ import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 
-interface Post {
-  title: string;
-  date: string;
-  published: boolean;
-  slug: string;
-  author: string;
-  content: string;
+type Path = keyof typeof directories;
+
+const directories = {
+  posts: join(process.cwd(), 'src/_posts'),
+  reading: join(process.cwd(), 'src/_reading'),
+};
+
+export function getPostSlugs(path: Path = 'posts') {
+  return fs.readdirSync(directories[path]);
 }
 
-const postsDirectory = join(process.cwd(), 'src/_posts');
-
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
-}
-
-export function getPostBySlug(slug: string, fields: string[] = []) {
+export function getPostBySlug(path: Path, slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+  const fullPath = join(directories[path], `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
@@ -46,20 +42,19 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   return items;
 }
 
-export function getAllPosts(fields: string[] = []) {
-  const slugs = getPostSlugs();
+export function getAllPosts(path: Path = 'posts', fields: string[] = []) {
+  const slugs = getPostSlugs(path);
   const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
+    .map((slug) => getPostBySlug(path, slug, fields))
     // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }
 
-export function getAllPublishedPosts(fields: string[] = []) {
-  const slugs = getPostSlugs();
+export function getAllPublishedPosts(path: Path = 'posts', fields: string[] = []) {
+  const slugs = getPostSlugs(path);
   const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
+    .map((slug) => getPostBySlug(path, slug, fields))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
     .filter((post) => post.published);
   return posts;

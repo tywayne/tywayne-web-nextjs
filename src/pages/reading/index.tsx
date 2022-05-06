@@ -1,17 +1,16 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { format } from 'date-fns';
 
 import { getAllPublishedPosts } from '../../lib/api';
 import { Layout } from '../../components';
-import PostType from '../../types/post';
+import ReadingType from '../../types/reading';
 
 type Props = {
-  allPosts: PostType[];
+  allPosts: ReadingType[];
 };
 
-const Blog: NextPage<Props> = ({ allPosts }) => {
+const Reading: NextPage<Props> = ({ allPosts }: Props) => {
   return (
     <>
       <Head>
@@ -21,22 +20,16 @@ const Blog: NextPage<Props> = ({ allPosts }) => {
       </Head>
 
       <Layout>
-        <h1 className="h2">blog</h1>
-        <p className="measure-wide">
-          I don&lsquo;t blog much, but I want to change that. Expect to see ramblings about hobbies,
-          fatherhood, design, and development.
-        </p>
+        <h1 className="h2">reading list</h1>
+        <p className="measure-wide">List of books I&lsquo;ve read, grouped by year.</p>
         <div className="measure-wide">
-          <ul className="list">
+          <ul className="list list--inline">
             {allPosts.map((post) => {
               return (
                 <li key={post.slug}>
-                  <Link href={`blog/${post.slug}`}>
+                  <Link href={`reading/${post.slug}`}>
                     <a>{post.title}</a>
                   </Link>
-                  <p>
-                    <small>{format(new Date(post.date), 'MMM d, Y')}</small>
-                  </p>
                 </li>
               );
             })}
@@ -51,11 +44,20 @@ const Blog: NextPage<Props> = ({ allPosts }) => {
 };
 
 export async function getStaticProps() {
-  const allPosts = getAllPublishedPosts('posts', ['title', 'date', 'slug', 'author', 'published']);
+  const allPosts = getAllPublishedPosts('reading', [
+    'title',
+    'date',
+    'slug',
+    'author',
+    'published',
+    'excerpt',
+    'book_count',
+    'goal',
+  ]);
 
   return {
     props: { allPosts },
   };
 }
 
-export default Blog;
+export default Reading;

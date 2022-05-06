@@ -73,7 +73,7 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(params.slug, ['title', 'date', 'slug', 'author', 'content']);
+  const post = getPostBySlug('posts', params.slug, ['title', 'date', 'slug', 'author', 'content']);
   const time = readingTimeWithCount(post.content);
   const content = await markdownToHtml(post.content || '');
 
@@ -89,7 +89,7 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug']);
+  const posts = getAllPosts('posts', ['slug']);
 
   return {
     paths: posts.map((post) => {
