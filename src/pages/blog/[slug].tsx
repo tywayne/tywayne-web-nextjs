@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import { format } from 'date-fns';
 import Head from 'next/head';
-import Link from 'next/Link';
+import Link from 'next/link';
 import readingTimeWithCount from 'reading-time';
 
 import { Layout } from '../../components';
