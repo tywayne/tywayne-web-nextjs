@@ -1,12 +1,15 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
+import sizeOf from 'image-size';
+import { ImageResult } from '../types/photos';
 
 type Path = keyof typeof directories;
 
 const directories = {
   posts: join(process.cwd(), 'src/_posts'),
   reading: join(process.cwd(), 'src/_reading'),
+  photography: join(process.cwd(), 'src/_photography'),
 };
 
 export function getPostSlugs(path: Path = 'posts') {
@@ -58,4 +61,19 @@ export function getAllPublishedPosts(path: Path = 'posts', fields: string[] = []
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
     .filter((post) => post.published);
   return posts;
+}
+
+export function getImagesByDirectory(path = ''): ImageResult[] {
+  const imagesDir = join(process.cwd(), `public/${path}`);
+
+  return fs.readdirSync(imagesDir).map((filename) => {
+    const filePath = `public/${path}${filename}`;
+
+    var dimensions = sizeOf(filePath);
+
+    return {
+      src: `${path}${filename}`,
+      dimensions,
+    };
+  });
 }

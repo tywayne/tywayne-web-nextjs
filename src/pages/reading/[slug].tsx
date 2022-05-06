@@ -10,8 +10,6 @@ import ReadingType from '../../types/reading';
 
 type Props = {
   post: ReadingType;
-  morePosts: ReadingType[];
-  preview?: boolean;
 };
 
 function ReadingPost({ post }: Props) {

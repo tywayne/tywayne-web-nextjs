@@ -12,17 +12,17 @@ interface NavLink {
 const mainNavLinks: NavLink[] = [
   {
     url: '/blog',
-    label: 'Blog',
+    label: 'blog',
   },
 
   {
     url: '/reading',
-    label: 'Reading',
+    label: 'reading',
   },
 
   {
     url: '/photography',
-    label: 'Photo',
+    label: 'photo',
   },
 ];
 

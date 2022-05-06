@@ -12,8 +12,6 @@ import PostType from '../../types/post';
 
 type Props = {
   post: PostType;
-  morePosts: PostType[];
-  preview?: boolean;
 };
 
 function Post({ post }: Props) {
@@ -42,22 +40,6 @@ function Post({ post }: Props) {
         </article>
       )}
       <aside>
-        {/* {% if page.previous or page.next %}
-        <ul class="list">
-          {% if page.previous %}
-            <li>
-              <a href="{{page.previous.url}}">&larr;  {{ page.previous.title}}</a>
-              <p><small>{{ page.previous.date | date: "%b %d, %Y"}}</small></p>
-            </li>
-          {% endif %}
-          {% if page.next %}
-          <li>
-            <a href="{{page.next.url}}">{{ page.next.title}} &rarr;</a>
-            <p><small>{{ page.next.date | date: "%b %d, %Y"}}</small></p>
-          </li>
-          {% endif %}
-        </ul>
-        {% endif %} */}
         <Link href="/blog">
           <a className="take-me-back">&larr; Blog</a>
         </Link>
