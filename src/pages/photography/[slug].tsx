@@ -24,7 +24,8 @@ function ReadingPost({ post }: Props) {
       ) : (
         <article className="mb-32">
           <Head>
-            <title>Ty Carlson | {post.title}</title>
+            <title>Ty Carlson | Photography - {post.title}</title>
+            <meta property="og:title" content={`Ty Carlson | Photography - ${post.title}`} />
           </Head>
           <h1 className="h2">{post.title}</h1>
           <p>{post.meta}</p>

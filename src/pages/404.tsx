@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 
 import { Layout } from '../components';
-import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
   return (
@@ -14,9 +14,10 @@ const Home: NextPage = () => {
       </Head>
 
       <Layout>
-        <main className={styles.main}>
-          <h1 className={styles.title}>404</h1>
-        </main>
+        <h1>404 - sorry couldn&lsquo;t find that one.</h1>
+        <Link href="/">
+          <a>&larr; home</a>
+        </Link>
       </Layout>
     </>
   );
