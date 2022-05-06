@@ -48,7 +48,7 @@ export default function Header() {
               <Link href={link.url}>
                 <a
                   className={classNames(styles.siteNavLink, {
-                    [styles.selected]: router.pathname === link.url,
+                    [styles.selected]: router.pathname.includes(link.url),
                   })}
                 >
                   {link.label}
