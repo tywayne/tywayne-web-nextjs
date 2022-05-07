@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -22,9 +22,13 @@ const Rowengartner: NextPage<Props> = ({ part1, part2 }) => {
   const [partOne, setPartOne] = useState(part1);
   const [partTwo, setPartTwo] = useState(part2);
 
-  const handleOnClick = useCallback(() => {
-    setPartOne(Parts[0][getRandom(Parts[0])]);
-    setPartTwo(Parts[1][getRandom(Parts[1])]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPartOne(Parts[0][getRandom(Parts[0])]);
+      setPartTwo(Parts[1][getRandom(Parts[1])]);
+    }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -40,7 +44,6 @@ const Rowengartner: NextPage<Props> = ({ part1, part2 }) => {
       </Head>
 
       <article
-        onClick={handleOnClick}
         className={styles.wrapper}
         style={{
           background: "url( '/images/henry.jpg' ) top center no-repeat",
