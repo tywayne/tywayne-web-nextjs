@@ -36,6 +36,7 @@ function ReadingPost({ post }: Props) {
               return (
                 <li key={image.src}>
                   <Image
+                    priority={indx === 0}
                     src={`/${image.src}`}
                     alt={`${post.title} - Image ${indx + 1}`}
                     layout="responsive"
