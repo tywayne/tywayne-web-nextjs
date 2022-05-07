@@ -42,6 +42,7 @@ function ReadingPost({ post }: Props) {
                     layout="responsive"
                     width={image.dimensions.width}
                     height={image.dimensions.height}
+                    quality={100}
                   />
                 </li>
               );
