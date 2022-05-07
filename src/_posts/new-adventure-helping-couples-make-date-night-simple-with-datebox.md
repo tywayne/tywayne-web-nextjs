@@ -13,7 +13,7 @@ look forward 10, 20, 30 years into the future and see where I want to be – to
 down words that describe what I want my life, legacy, and mission in this world to be.
 
 For the last 5 1/2 years of my life, I have been small part of the talented development team at
-[iThemes](https://ithemes.com){:target="\_blank" }. Cory, Matt, and the entire iThemes
+[iThemes](https://ithemes.com). Cory, Matt, and the entire iThemes
 team will forever feel like family to me. They will always be a beacon of light pointing to some of
 the best years of my life and my career.
 
@@ -26,7 +26,7 @@ the eye and said "you can be loyal to yourself sometimes, too." The truth of tha
 will stick with me for a while.
 
 At the same time that I was fleshing out what I wanted my future to look like, I stumbled upon a
-local company named [Datebox](https://www.getdatebox.com){:target="\_blank" } who were doing some
+local company named [Datebox](https://www.getdatebox.com) who were doing some
 really meaningful work by helping couples strengthen their relationship. They offer a monthly
 subscription box that provides a complete date for you and your significant other, delivered right
 to your door every month. On these dates, you'll do anything from roasting coffee beans, to having
@@ -42,6 +42,6 @@ in the mission of the company. Graciously they offered me a position.
 
 All of that to say that today is my last day at iThemes. On Monday, I'll start a new adventure,
 helping couples make date night fun, easy, simple, and intentional at
-[Datebox](https://www.getdatebox.com){:target="\_blank" }.
+[Datebox](https://www.getdatebox.com).
 
 ---

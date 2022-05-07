@@ -42,7 +42,7 @@ function Post({ post }: Props) {
       )}
       <aside>
         <Link href="/blog">
-          <a className="take-me-back">&larr; Blog</a>
+          <a className="take-me-back">&larr; blog</a>
         </Link>
       </aside>
     </Layout>

@@ -29,7 +29,7 @@ function ReadingPost({ post }: Props) {
               name="description"
               content={`List of books I read in ${post.title}, in chronological order.`}
             />
-            <meta property="og:title" content="Ty Carlson | Reading List - {post.title}" />
+            <meta property="og:title" content={`Ty Carlson | Reading List - ${post.title}`} />
             <meta
               property="og:description"
               content={`List of books I read in ${post.title}, in chronological order.`}

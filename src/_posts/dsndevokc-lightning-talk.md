@@ -9,9 +9,9 @@ author: Ty Carlson
 
 I recently was asked to give a short lightning talk at a DSN+DEV+OKC, a local design and development
 user group meetup. I chose to give a few tips (from a developer perspective) while building out a design
-system in my first few months at [Datebox](https://www.getdatebox.com){:target="\_blank\" }
+system in my first few months at [Datebox](https://www.getdatebox.com)
 
-[You can download my slides](/assets/img/dsndevokc-june-2017.pdf), but I also wanted to write out the basics of what I communicated in that
+[You can download my slides](/dsndevokc-june-2017.pdf), but I also wanted to write out the basics of what I communicated in that
 talk below.
 
 ---
