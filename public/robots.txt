@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://tywayne.com
+
+# Sitemaps
+Sitemap: https://tywayne.com/sitemap.xml
