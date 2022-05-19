@@ -66,7 +66,7 @@
   font-size: 2.4rem;
   color: var(--body-foreground);
   box-shadow: none;
-  transition: 0.2s opacity ease-in;
+  transition: 0.2s opacity ease-in, 0.2s ease-in color;
 }
 .footerNav li a:hover,
 .footerNav li a:focus {
@@ -79,12 +79,14 @@
 }
 
 .darkModeToggle {
-  background-color: var(--body-background);
+  background-color: transparent;
   color: var(--body-foreground);
   border: none;
   outline: none;
   cursor: pointer;
+  transition: 0.2s ease-in color, 0.2s ease-in outline;
 }
+
 .darkModeToggle:focus {
   outline: 1px dotted var(--body-foreground);
 }

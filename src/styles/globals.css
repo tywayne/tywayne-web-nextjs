@@ -26,6 +26,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--body-background);
   color: var(--body-foreground);
+  transition: 0.2s ease-in background, 0.2s ease-in color;
 }
 
 body > div {
@@ -64,6 +65,7 @@ blockquote {
   border-left: 3px solid var(--body-foreground);
   padding: 2rem;
   margin: 0 0 1.6rem 0;
+  transition: 0.2s ease-in background-color, 0.2s ease-in border-left;
 }
 
 blockquote p {
@@ -96,19 +98,23 @@ blockquote p:last-child {
   border-radius: 2px;
   margin-bottom: 4px;
   background-color: var(--body-background-alt);
+  transition: 0.2s ease-in background-color;
 }
 
 .progress progress::-webkit-progress-bar {
   border-radius: 2px;
   background-color: var(--body-background-alt);
+  transition: 0.2s ease-in background-color;
 }
 .progress progress::-webkit-progress-value {
   border-radius: 2px;
   background-color: var(--body-foreground);
+  transition: 0.2s ease-in background-color;
 }
 .progress progress::-moz-progress-bar {
   border-radius: 2px;
   background-color: var(--body-foreground);
+  transition: 0.2s ease-in background-color;
 }
 
 hr {
@@ -120,7 +126,7 @@ hr {
 main a {
   color: var(--body-foreground);
   text-decoration: none;
-  transition: opacity 0.15s ease-in;
+  transition: opacity 0.15s ease-in, 0.2s ease-in color, 0.2s ease-in box-shadow;
 }
 main a:hover,
 main a:focus {
@@ -246,6 +252,7 @@ a {
   opacity: 1;
   transition: opacity 0.2s ease-in;
   font-weight: bold;
+  transition: 0.2s ease-in color, 0.2s ease-in box-shadow;
 }
 
 a:hover {

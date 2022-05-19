@@ -41,6 +41,7 @@
   color: var(--body-foreground);
   font-size: 1.4rem;
   font-weight: normal;
+  transition: 0.2s ease-in color;
 }
 
 @media screen and (min-width: 768px) {
@@ -52,10 +53,12 @@
 .siteNavLink:hover {
   opacity: 1;
   box-shadow: 0 2px 0 0 var(--body-foreground);
+  transition: 0.2s ease-in box-shadow;
 }
 
 a.selected {
   opacity: 1;
   box-shadow: 0 2px 0 0 var(--body-foreground);
   font-weight: bold;
+  transition: 0.2s ease-in box-shadow;
 }
