@@ -17,8 +17,18 @@ function ReadingPost({ post }: Props) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
   return (
     <Layout>
+      <Head>
+        <meta
+          property="og:image"
+          content={`${process.env.NODE_ENV === 'production' ? 'https://tywayne.com/' : '/'}${
+            post.cover_img
+          }`}
+          key="image"
+        />
+      </Head>
       {router.isFallback ? (
         <h1>Loading…</h1>
       ) : (
