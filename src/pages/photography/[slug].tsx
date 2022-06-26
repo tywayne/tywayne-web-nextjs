@@ -47,6 +47,8 @@ function ReadingPost({ post }: Props) {
               return (
                 <li key={image.src}>
                   <Image
+                    placeholder="blur"
+                    blurDataURL={image.blurDataURL}
                     priority={indx === 0}
                     src={`/${image.src}`}
                     alt={`${post.title} - Image ${indx + 1}`}

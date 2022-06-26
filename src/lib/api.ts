@@ -68,12 +68,12 @@ export function getImagesByDirectory(path = ''): ImageResult[] {
 
   return fs.readdirSync(imagesDir).map((filename) => {
     const filePath = `public/${path}${filename}`;
-
-    var dimensions = sizeOf(filePath);
-
+    const dimensions = sizeOf(filePath);
     return {
       src: `${path}${filename}`,
       dimensions,
+      blurDataURL:
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkkAQAAB8AG7jymN8AAAAASUVORK5CYII=',
     };
   });
 }

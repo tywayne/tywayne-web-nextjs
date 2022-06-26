@@ -12,6 +12,7 @@ interface ISizeCalculationResult extends ISize {
 export type ImageResult = {
   src: string;
   dimensions: ISizeCalculationResult;
+  blurDataURL: string;
 };
 
 type PhotosType = {
