@@ -10,16 +10,14 @@ interface NavLink {
 }
 
 const mainNavLinks: NavLink[] = [
-  {
-    url: '/blog',
-    label: 'blog',
-  },
-
+  // {
+  //   url: '/blog',
+  //   label: 'blog',
+  // },
   {
     url: '/reading',
     label: 'reading',
   },
-
   {
     url: '/photography',
     label: 'photo',
