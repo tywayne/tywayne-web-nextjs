@@ -21,6 +21,7 @@ function ReadingPost({ post }: Props) {
   return (
     <Layout>
       <Head>
+        <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="og:image"
           content={`${process.env.NODE_ENV === 'production' ? 'https://tywayne.com/' : '/'}${
