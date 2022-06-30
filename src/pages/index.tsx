@@ -18,7 +18,7 @@ const Home: NextPage = () => {
           <a href="https://midfirst.com/" target="_blank" rel="noreferrer nofollow">
             MidFirst Bank
           </a>
-          , building next generation digital banking experiences.
+          , building <strikethrough>next generation</strikethrough> digital banking experiences.
         </p>
 
         <p>I live in Oklahoma City, OK with my wife (Lauren), son (Liam), and daughter (Remi).</p>
