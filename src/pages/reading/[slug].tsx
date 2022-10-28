@@ -22,7 +22,7 @@ function ReadingPost({ post }: Props) {
       {router.isFallback ? (
         <h1>Loading…</h1>
       ) : (
-        <article className="mb-32">
+        <article>
           <Head>
             <title>Ty Carlson | Reading List - {post.title}</title>
             <meta

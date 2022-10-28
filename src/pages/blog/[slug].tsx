@@ -24,7 +24,7 @@ function Post({ post }: Props) {
       {router.isFallback ? (
         <h1>Loading…</h1>
       ) : (
-        <article className="mb-32">
+        <article>
           <Head>
             <title>Ty Carlson | {post.title}</title>
             <meta property="og:title" content={`Ty Carlson | ${post.title}`} />

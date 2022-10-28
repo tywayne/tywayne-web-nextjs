@@ -8,6 +8,8 @@ import { Layout } from '../../components';
 import { getPostBySlug, getAllPosts, getImagesByDirectory } from '../../lib/api';
 import PhotosType from '../../types/photos';
 
+import styles from './styles.module.css';
+
 type Props = {
   post: PhotosType;
 };
@@ -33,30 +35,36 @@ function ReadingPost({ post }: Props) {
       {router.isFallback ? (
         <h1>Loading…</h1>
       ) : (
-        <article className="mb-32">
+        <article>
           <Head>
             <title>Ty Carlson | Photography - {post.title}</title>
             <meta property="og:title" content={`Ty Carlson | Photography - ${post.title}`} />
           </Head>
           <h1 className="h2">{post.title}</h1>
           <p>{post.meta}</p>
-          <div className="measure-wide"></div>
 
           <ul className="list">
             {post.images.map((image, indx) => {
               return (
                 <li key={image.src}>
-                  <Image
-                    placeholder="blur"
-                    blurDataURL={image.blurDataURL}
-                    priority={indx === 0}
-                    src={`/${image.src}`}
-                    alt={`${post.title} - Image ${indx + 1}`}
-                    layout="responsive"
-                    width={image.dimensions.width}
-                    height={image.dimensions.height}
-                    quality={100}
-                  />
+                  <div
+                    className={styles.imageContainer}
+                    style={{ aspectRatio: `${image.dimensions.width}/${image.dimensions.height}` }}
+                  >
+                    <Image
+                      placeholder="blur"
+                      blurDataURL={image.blurDataURL}
+                      priority={indx === 0}
+                      src={`/${image.src}`}
+                      sizes="(max-width: 768px) 90vw, 60ch"
+                      alt={`${post.title} - Image ${indx + 1}`}
+                      layout="fill"
+                      width={image.dimensions.width}
+                      height={image.dimensions.height}
+                      quality={100}
+                      className={styles.image}
+                    />
+                  </div>
                 </li>
               );
             })}
