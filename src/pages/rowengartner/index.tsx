@@ -2,15 +2,26 @@ import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import styles from '../../styles/Rowengartner.module.css';
+import styles from './styles.module.css';
 
 const Parts = [
-  ['Rulen', 'Raven', 'Rosen', 'Roven', 'Roger', 'Rowen', 'Runna', 'Rollin'],
-  ['verter', 'boozer', 'gagger', 'grueter', 'grooten', 'gardener', 'gartner', 'mucker', 'fruiter'],
+  new Set(['Rulen', 'Raven', 'Rosen', 'Roven', 'Roger', 'Rowen', 'Runna', 'Rollin']),
+  new Set([
+    'verter',
+    'boozer',
+    'gagger',
+    'grueter',
+    'grooten',
+    'gardener',
+    'gartner',
+    'mucker',
+    'fruiter',
+  ]),
 ];
 
-function getRandom(arr: string[]) {
-  return Math.floor(Math.random() * arr.length);
+function getRandomItem(set: Set<string>) {
+  const items = Array.from(set);
+  return items[Math.floor(Math.random() * items.length)];
 }
 
 type Props = {
@@ -19,13 +30,11 @@ type Props = {
 };
 
 const Rowengartner: NextPage<Props> = ({ part1, part2 }) => {
-  const [partOne, setPartOne] = useState(part1);
-  const [partTwo, setPartTwo] = useState(part2);
+  const [lastName, setLastName] = useState(`${part1}${part2}`);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setPartOne(Parts[0][getRandom(Parts[0])]);
-      setPartTwo(Parts[1][getRandom(Parts[1])]);
+      setLastName(`${getRandomItem(Parts[0])}${getRandomItem(Parts[1])}`);
     }, 1000);
 
     return () => clearInterval(interval);
@@ -34,13 +43,10 @@ const Rowengartner: NextPage<Props> = ({ part1, part2 }) => {
   return (
     <>
       <Head>
-        <title>
-          Henry {partOne}
-          {partTwo}
-        </title>
-        <meta name="description" content={`Henry ${partOne}${partTwo}`} />
-        <meta property="og:title" content={`Henry ${partOne}${partTwo}`} />
-        <meta property="og:description" content={`Henry ${partOne}${partTwo}`} />
+        <title>Henry {lastName}</title>
+        <meta name="description" content={`Henry ${lastName}`} />
+        <meta property="og:title" content={`Henry ${lastName}`} />
+        <meta property="og:description" content={`Henry ${lastName}`} />
       </Head>
 
       <article
@@ -52,8 +58,7 @@ const Rowengartner: NextPage<Props> = ({ part1, part2 }) => {
       >
         <div>
           <h1 className={styles.title}>
-            Henry <span id="part_one">{partOne}</span>
-            <span id="part_two">{partTwo}</span>
+            Henry <span>{lastName}</span>
           </h1>
         </div>
       </article>
@@ -62,8 +67,8 @@ const Rowengartner: NextPage<Props> = ({ part1, part2 }) => {
 };
 
 export async function getServerSideProps() {
-  const part1 = Parts[0][getRandom(Parts[0])];
-  const part2 = Parts[1][getRandom(Parts[1])];
+  const part1 = getRandomItem(Parts[0]);
+  const part2 = getRandomItem(Parts[1]);
 
   return { props: { part1, part2 } };
 }

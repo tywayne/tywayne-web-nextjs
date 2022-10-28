@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -20,19 +20,19 @@ const mainNavLinks: NavLink[] = [
   },
   {
     url: '/photography',
-    label: 'photo',
+    label: 'photography',
   },
 ];
 
 export default function Header() {
   const router = useRouter();
   return (
-    <nav className={classNames('container--fluid', styles.siteNav)}>
+    <nav className={cn('container--fluid', styles.siteNav)}>
       <ul>
         <li>
           <Link href="/">
             <a
-              className={classNames(styles.siteNavLink, {
+              className={cn(styles.siteNavLink, {
                 [styles.selected]: router.pathname === '/',
               })}
             >
@@ -45,7 +45,7 @@ export default function Header() {
             <li key={link.url}>
               <Link href={link.url}>
                 <a
-                  className={classNames(styles.siteNavLink, {
+                  className={cn(styles.siteNavLink, {
                     [styles.selected]: router.pathname.includes(link.url),
                   })}
                 >
