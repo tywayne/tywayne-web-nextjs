@@ -44,7 +44,7 @@ function ReadingPost({ post }: Props) {
             <meta property="og:title" content={description} />
           </Head>
           <h1 className="h2">{post.title}</h1>
-          <p>{post.meta}</p>
+          <p>{post.excerpt}</p>
 
           <ul className="list">
             {post.images.map((image, indx) => {
@@ -62,8 +62,6 @@ function ReadingPost({ post }: Props) {
                       sizes="(max-width: 768px) 90vw, 60ch"
                       alt={`${post.title} - Image ${indx + 1}`}
                       layout="fill"
-                      // width={image.dimensions.width}
-                      // height={image.dimensions.height}
                       quality={100}
                       className={styles.image}
                     />
@@ -95,7 +93,7 @@ export async function getStaticProps({ params }: Params) {
     'date',
     'slug',
     'author',
-    'meta',
+    'excerpt',
     'img_dir',
     'cover_img',
   ]);

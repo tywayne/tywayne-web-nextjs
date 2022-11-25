@@ -56,7 +56,7 @@ const Photos: NextPage<Props> = ({ allPosts }: Props) => {
                     <a>{post.title}</a>
                   </Link>
                   <p>
-                    <small>{post.meta}</small>
+                    <small>{post.excerpt}</small>
                   </p>
                 </li>
               );
@@ -78,7 +78,7 @@ export async function getStaticProps() {
     'slug',
     'author',
     'published',
-    'meta',
+    'excerpt',
   ]);
 
   return {

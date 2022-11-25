@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
+import { generateFeed } from '../lib/generateFeed';
 import { Layout } from '../components';
 
 const Home: NextPage = () => {
@@ -31,5 +32,10 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  await generateFeed();
+  return { props: {} };
+}
 
 export default Home;

@@ -23,7 +23,7 @@ type PhotosType = {
   content: string;
   img_dir: string;
   cover_img: string;
-  meta: string;
+  excerpt: string;
   images: ImageResult[];
 };
 
