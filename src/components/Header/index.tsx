@@ -30,27 +30,25 @@ export default function Header() {
     <nav className={cn('container--fluid', styles.siteNav)}>
       <ul>
         <li>
-          <Link href="/">
-            <a
-              className={cn(styles.siteNavLink, {
-                [styles.selected]: router.pathname === '/',
-              })}
-            >
-              {'//'}
-            </a>
+          <Link
+            href="/"
+            className={cn(styles.siteNavLink, {
+              [styles.selected]: router.pathname === '/',
+            })}
+          >
+            {'//'}
           </Link>
         </li>
         {mainNavLinks.map((link) => {
           return (
             <li key={link.url}>
-              <Link href={link.url}>
-                <a
-                  className={cn(styles.siteNavLink, {
-                    [styles.selected]: router.pathname.includes(link.url),
-                  })}
-                >
-                  {link.label}
-                </a>
+              <Link
+                href={link.url}
+                className={cn(styles.siteNavLink, {
+                  [styles.selected]: router.pathname.includes(link.url),
+                })}
+              >
+                {link.label}
               </Link>
             </li>
           );

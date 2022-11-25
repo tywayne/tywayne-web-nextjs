@@ -98,10 +98,8 @@ export default function Footer() {
         </li>
         <li>
           <Link href="/rowengartner">
-            <a title="Rowengartner">
-              <span className="visually-hidden">Rowengartner</span>
-              <BaseballIcon />
-            </a>
+            <span className="visually-hidden">Rowengartner</span>
+            <BaseballIcon />
           </Link>
         </li>
       </ul>

@@ -32,9 +32,7 @@ const Blog: NextPage<Props> = ({ allPosts }) => {
             {allPosts.map((post) => {
               return (
                 <li key={post.slug}>
-                  <Link href={`blog/${post.slug}`}>
-                    <a>{post.title}</a>
-                  </Link>
+                  <Link href={`blog/${post.slug}`}>{post.title}</Link>
                   <p>
                     <small>{format(new Date(post.date), 'MMM d, Y')}</small>
                   </p>
@@ -43,8 +41,8 @@ const Blog: NextPage<Props> = ({ allPosts }) => {
             })}
           </ul>
         </div>
-        <Link href="/">
-          <a className="take-me-back">&larr; home</a>
+        <Link href="/" className="take-me-back">
+          &larr; home
         </Link>
       </Layout>
     </>

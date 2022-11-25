@@ -55,8 +55,8 @@ function ReadingPost({ post }: Props) {
         </article>
       )}
       <aside>
-        <Link href="/reading">
-          <a className="take-me-back">&larr; reading list</a>
+        <Link href="/reading" className="take-me-back">
+          &larr; reading list
         </Link>
       </aside>
     </Layout>

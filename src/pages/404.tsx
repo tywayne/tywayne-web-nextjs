@@ -15,9 +15,7 @@ const Home: NextPage = () => {
 
       <Layout>
         <h1>404 - sorry couldn&lsquo;t find that one.</h1>
-        <Link href="/">
-          <a>&larr; home</a>
-        </Link>
+        <Link href="/">&larr; home</Link>
       </Layout>
     </>
   );

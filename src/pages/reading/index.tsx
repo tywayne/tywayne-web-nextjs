@@ -31,16 +31,14 @@ const Reading: NextPage<Props> = ({ allPosts }: Props) => {
             {allPosts.map((post) => {
               return (
                 <li key={post.slug}>
-                  <Link href={`reading/${post.slug}`}>
-                    <a>{post.title}</a>
-                  </Link>
+                  <Link href={`reading/${post.slug}`}>{post.title}</Link>
                 </li>
               );
             })}
           </ul>
         </div>
-        <Link href="/">
-          <a className="take-me-back">&larr; home</a>
+        <Link href="/" className="take-me-back">
+          &larr; home
         </Link>
       </Layout>
     </>

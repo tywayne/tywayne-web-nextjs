@@ -52,9 +52,7 @@ const Photos: NextPage<Props> = ({ allPosts }: Props) => {
             {allPosts.map((post) => {
               return (
                 <li key={post.slug}>
-                  <Link href={`photography/${post.slug}`}>
-                    <a>{post.title}</a>
-                  </Link>
+                  <Link href={`photography/${post.slug}`}>{post.title}</Link>
                   <p>
                     <small>{post.excerpt}</small>
                   </p>
@@ -63,8 +61,8 @@ const Photos: NextPage<Props> = ({ allPosts }: Props) => {
             })}
           </ul>
         </div>
-        <Link href="/">
-          <a className="take-me-back">&larr; home</a>
+        <Link href="/" className="take-me-back">
+          &larr; home
         </Link>
       </Layout>
     </>

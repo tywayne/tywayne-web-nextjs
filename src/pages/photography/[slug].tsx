@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 import { Layout } from '../../components';
 import { getPostBySlug, getAllPosts, getImagesByDirectory } from '../../lib/api';
@@ -73,8 +73,8 @@ function ReadingPost({ post }: Props) {
         </article>
       )}
       <aside>
-        <Link href="/photography">
-          <a className="take-me-back">&larr; photos</a>
+        <Link href="/photography" className="take-me-back">
+          &larr; photos
         </Link>
       </aside>
     </Layout>
