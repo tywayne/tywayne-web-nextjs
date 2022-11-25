@@ -3,7 +3,14 @@ import cn from 'classnames';
 import { format } from 'date-fns';
 import Link from 'next/link';
 
-import { InstagramIcon, TwitterIcon, GithubIcon, EmailIcon, BaseballIcon } from '../../assets';
+import {
+  InstagramIcon,
+  TwitterIcon,
+  GithubIcon,
+  EmailIcon,
+  BaseballIcon,
+  RssIcon,
+} from '../../assets';
 import styles from './Footer.module.css';
 
 export const DARK_MODE_KEY = 'DARK_MODE';
@@ -94,6 +101,12 @@ export default function Footer() {
           <a href="mailto:tywayne@fastmail.com" title="Email">
             <span className="visually-hidden">Send an Email</span>
             <EmailIcon />
+          </a>
+        </li>
+        <li>
+          <a href="/rss.xml" title="RSS Feed">
+            <span className="visually-hidden">Subscribe to RSS Feed</span>
+            <RssIcon />
           </a>
         </li>
         <li>

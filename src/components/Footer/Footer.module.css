@@ -73,6 +73,9 @@
   opacity: 0.8;
 }
 
+.footerNav li a:focus-visible {
+  outline: 1px dotted var(--body-foreground);
+}
 .footerNav li svg {
   width: 2.2rem;
   height: 2.2rem;
@@ -87,7 +90,7 @@
   transition: 0.2s ease-in color, 0.2s ease-in outline;
 }
 
-.darkModeToggle:focus {
+.darkModeToggle:focus-visible {
   outline: 1px dotted var(--body-foreground);
 }
 
