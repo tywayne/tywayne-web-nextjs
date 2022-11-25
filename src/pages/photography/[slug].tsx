@@ -20,6 +20,9 @@ function ReadingPost({ post }: Props) {
     return <ErrorPage statusCode={404} />;
   }
 
+  const title = `Ty Carlson | Photography - ${post.title}`;
+  const description = `Ty Carlson | Photography - ${post.title}`;
+
   return (
     <Layout>
       <Head>
@@ -37,8 +40,8 @@ function ReadingPost({ post }: Props) {
       ) : (
         <article>
           <Head>
-            <title>Ty Carlson | Photography - {post.title}</title>
-            <meta property="og:title" content={`Ty Carlson | Photography - ${post.title}`} />
+            <title>{title}</title>
+            <meta property="og:title" content={description} />
           </Head>
           <h1 className="h2">{post.title}</h1>
           <p>{post.meta}</p>
@@ -59,8 +62,8 @@ function ReadingPost({ post }: Props) {
                       sizes="(max-width: 768px) 90vw, 60ch"
                       alt={`${post.title} - Image ${indx + 1}`}
                       layout="fill"
-                      width={image.dimensions.width}
-                      height={image.dimensions.height}
+                      // width={image.dimensions.width}
+                      // height={image.dimensions.height}
                       quality={100}
                       className={styles.image}
                     />

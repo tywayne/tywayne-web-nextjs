@@ -19,6 +19,9 @@ function Post({ post }: Props) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
+  const title = `Ty Carlson | ${post.title}`;
+
   return (
     <Layout>
       {router.isFallback ? (
@@ -26,7 +29,7 @@ function Post({ post }: Props) {
       ) : (
         <article>
           <Head>
-            <title>Ty Carlson | {post.title}</title>
+            <title>{title}</title>
             <meta property="og:title" content={`Ty Carlson | ${post.title}`} />
           </Head>
           <h1 className="h2">{post.title}</h1>

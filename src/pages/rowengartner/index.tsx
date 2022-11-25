@@ -40,13 +40,15 @@ const Rowengartner: NextPage<Props> = ({ part1, part2 }) => {
     return () => clearInterval(interval);
   }, []);
 
+  const title = `Henry ${lastName}`;
+
   return (
     <>
       <Head>
         <title>Henry {lastName}</title>
-        <meta name="description" content={`Henry ${lastName}`} />
-        <meta property="og:title" content={`Henry ${lastName}`} />
-        <meta property="og:description" content={`Henry ${lastName}`} />
+        <meta name="description" content={title} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={title} />
       </Head>
 
       <article

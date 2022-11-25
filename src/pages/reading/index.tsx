@@ -11,13 +11,16 @@ type Props = {
 };
 
 const Reading: NextPage<Props> = ({ allPosts }: Props) => {
+  const title = `Ty Carlson | Reading List`;
+  const description = `List of books I&lsquo;ve read, grouped by year.`;
+
   return (
     <>
       <Head>
-        <title>Ty Carlson | Reading List</title>
-        <meta name="description" content="List of books I&lsquo;ve read, grouped by year." />
-        <meta property="og:title" content="Ty Carlson | Reading List" />
-        <meta property="og:description" content="List of books I&lsquo;ve read, grouped by year." />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
       </Head>
 
       <Layout>

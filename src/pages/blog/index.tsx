@@ -12,29 +12,21 @@ type Props = {
 };
 
 const Blog: NextPage<Props> = ({ allPosts }) => {
+  const title = `Ty Carlson | Blog`;
+  const description = `I don&lsquo;t blog much, but I want to change that. Expect to see ramblings about hobbies, fatherhood, design, and development.`;
+
   return (
     <>
       <Head>
-        <title>Ty Carlson | Blog</title>
-        <meta
-          name="description"
-          content="I don&lsquo;t blog much, but I want to change that. Expect to see ramblings about hobbies,
-          fatherhood, design, and development."
-        />
-        <meta property="og:title" content="Ty Carlson | Blog" />
-        <meta
-          property="og:description"
-          content="I don&lsquo;t blog much, but I want to change that. Expect to see ramblings about hobbies,
-          fatherhood, design, and development."
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
       </Head>
 
       <Layout>
         <h1 className="h2">blog</h1>
-        <p className="measure-wide">
-          I don&lsquo;t blog much, but I want to change that. Expect to see ramblings about hobbies,
-          fatherhood, design, and development.
-        </p>
+        <p className="measure-wide">{description}</p>
         <div className="measure-wide">
           <ul className="list">
             {allPosts.map((post) => {

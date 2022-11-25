@@ -17,6 +17,10 @@ function ReadingPost({ post }: Props) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
+  const title = `Ty Carlson | Reading List - ${post.title}`;
+  const description = `List of books I read in ${post.title}, in chronological order.`;
+
   return (
     <Layout>
       {router.isFallback ? (
@@ -24,16 +28,10 @@ function ReadingPost({ post }: Props) {
       ) : (
         <article>
           <Head>
-            <title>Ty Carlson | Reading List - {post.title}</title>
-            <meta
-              name="description"
-              content={`List of books I read in ${post.title}, in chronological order.`}
-            />
-            <meta property="og:title" content={`Ty Carlson | Reading List - ${post.title}`} />
-            <meta
-              property="og:description"
-              content={`List of books I read in ${post.title}, in chronological order.`}
-            />
+            <title>{title}</title>
+            <meta name="description" content={description} />
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={description} />
           </Head>
           <h1 className="h2">reading list &mdash; {post.title}</h1>
           <p>List of books I read in {post.title}, in chronological order.</p>

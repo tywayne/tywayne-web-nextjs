@@ -11,19 +11,16 @@ type Props = {
 };
 
 const Photos: NextPage<Props> = ({ allPosts }: Props) => {
+  const title = `Ty Carlson | Photography`;
+  const description = `Be forewarned, I&lsquo;m an amateur photographer at best.`;
+
   return (
     <>
       <Head>
-        <title>Ty Carlson | Photography</title>
-        <meta
-          name="description"
-          content="Be forewarned, I&lsquo;m an amateur photographer at best."
-        />
-        <meta property="og:title" content="Ty Carlson | Photography" />
-        <meta
-          property="og:description"
-          content="Be forewarned, I&lsquo;m an amateur photographer at best."
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
       </Head>
 
       <Layout>
