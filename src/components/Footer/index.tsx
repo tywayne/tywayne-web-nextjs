@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef, MouseEvent } from 'react';
 import cn from 'classnames';
 import { format } from 'date-fns';
 import Link from 'next/link';
@@ -25,22 +25,59 @@ export const BLURB_ARRAY = [
 ];
 
 export default function Footer() {
+  const darkModePref = useRef<MediaQueryList | null>(null);
+
   const [darkModeEnabled, setDarkModeEnabled] = useState(false);
   const [blurbText, setBlurbText] = useState('');
 
-  const setDarkMode = useCallback((on: boolean) => {
+  const setDarkMode = useCallback((on: boolean, skipStorage: boolean = false) => {
     const styleObj = document.documentElement.style;
-    localStorage.setItem(DARK_MODE_KEY, JSON.stringify(on));
 
     styleObj.setProperty('--body-foreground', on ? '#fff' : '#242424');
     styleObj.setProperty('--body-background', on ? '#242424' : '#fff');
     styleObj.setProperty('--body-background-alt', on ? '#404040' : '#f7f7f7');
+
+    if (!skipStorage) localStorage.setItem(DARK_MODE_KEY, JSON.stringify(on));
   }, []);
 
-  const handleSetDarkMode = () => {
-    setDarkMode(!darkModeEnabled);
-    setDarkModeEnabled(!darkModeEnabled);
-  };
+  useEffect(() => {
+    darkModePref.current = window.matchMedia('(prefers-color-scheme: dark)');
+  }, []);
+
+  const handleColorSchemeChange = useCallback(
+    (e: MediaQueryListEvent) => {
+      setDarkMode(e.matches, true);
+      setDarkModeEnabled(e.matches);
+    },
+    [setDarkMode],
+  );
+
+  useEffect(() => {
+    const storedPref = localStorage.getItem(DARK_MODE_KEY);
+    const currentPref = darkModePref.current as MediaQueryList;
+
+    currentPref.addEventListener('change', (e) => {
+      if (storedPref !== null) return;
+      handleColorSchemeChange(e);
+    });
+
+    return () => currentPref.removeEventListener('change', handleColorSchemeChange);
+  }, [handleColorSchemeChange]);
+
+  const toggleDarkMode = useCallback(
+    (on: boolean) => {
+      setDarkMode(on);
+      setDarkModeEnabled(on);
+    },
+    [setDarkMode, setDarkModeEnabled],
+  );
+
+  const handleClickToggle = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      toggleDarkMode(!darkModeEnabled);
+    },
+    [toggleDarkMode, darkModeEnabled],
+  );
 
   useEffect(() => {
     let storedValue: string | null;
@@ -48,7 +85,7 @@ export default function Footer() {
 
     if (typeof window !== 'undefined') {
       storedValue = localStorage.getItem(DARK_MODE_KEY);
-      matchMediaValue = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      matchMediaValue = (darkModePref.current as MediaQueryList).matches;
     } else {
       storedValue = null;
       matchMediaValue = false;
@@ -56,7 +93,7 @@ export default function Footer() {
 
     const enabled = storedValue !== null ? JSON.parse(storedValue) : matchMediaValue;
     setDarkModeEnabled(enabled);
-    setDarkMode(enabled);
+    setDarkMode(enabled, storedValue === null);
   }, [setDarkMode]);
 
   useEffect(() => {
@@ -68,7 +105,7 @@ export default function Footer() {
       <div className={styles.footerCopy}>
         <p>&copy; {format(Date.now(), 'Y')} &mdash; Ty Carlson</p>
         <p>
-          <button className={styles.darkModeToggle} onClick={() => handleSetDarkMode()}>
+          <button className={styles.darkModeToggle} onClick={handleClickToggle}>
             Turn the lights {darkModeEnabled ? 'ON' : 'OFF'}
           </button>
         </p>
