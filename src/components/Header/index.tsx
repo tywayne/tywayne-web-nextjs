@@ -14,14 +14,14 @@ const mainNavLinks: NavLink[] = [
   //   url: '/blog',
   //   label: 'blog',
   // },
-  {
-    url: '/reading',
-    label: 'reading',
-  },
-  {
-    url: '/photography',
-    label: 'photography',
-  },
+  // {
+  //   url: '/reading',
+  //   label: 'reading',
+  // },
+  // {
+  //   url: '/photography',
+  //   label: 'photography',
+  // },
 ];
 
 export default function Header() {

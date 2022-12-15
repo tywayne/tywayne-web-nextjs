@@ -33,9 +33,9 @@ export default function Footer() {
   const setDarkMode = useCallback((on: boolean, skipStorage: boolean = false) => {
     const styleObj = document.documentElement.style;
 
-    styleObj.setProperty('--body-foreground', on ? '#fff' : '#242424');
-    styleObj.setProperty('--body-background', on ? '#242424' : '#fff');
-    styleObj.setProperty('--body-background-alt', on ? '#404040' : '#f7f7f7');
+    styleObj.setProperty('--body-foreground', on ? '#e4dbcd' : '#33403d');
+    styleObj.setProperty('--body-background', on ? '#33403d' : '#e4dbcd');
+    styleObj.setProperty('--body-background-alt', on ? '#56625e' : '#bbb5aa');
 
     if (!skipStorage) localStorage.setItem(DARK_MODE_KEY, JSON.stringify(on));
   }, []);
