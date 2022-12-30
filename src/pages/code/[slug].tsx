@@ -20,7 +20,7 @@ function CodeItem({ post }: Props) {
   }
 
   const title = `Ty Carlson | Code - ${post.title}`;
-  const description = `List of books I read in ${post.title}, in chronological order.`;
+  const description = `${post.excerpt}`;
 
   return (
     <Layout>
@@ -61,6 +61,7 @@ export async function getStaticProps({ params }: Params) {
     'slug',
     'author',
     'content',
+    'excerpt',
     'link',
   ]);
   const content = await markdownToHtml(post.content || '');
