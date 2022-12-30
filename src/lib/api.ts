@@ -10,6 +10,7 @@ const directories = {
   posts: join(process.cwd(), 'src/_posts'),
   reading: join(process.cwd(), 'src/_reading'),
   photography: join(process.cwd(), 'src/_photography'),
+  code: join(process.cwd(), 'src/_code'),
 };
 
 export function getPostSlugs(path: Path = 'posts') {
