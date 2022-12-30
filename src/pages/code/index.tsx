@@ -10,14 +10,12 @@ type Props = {
   posts: CodeType[];
 };
 
+const codeIntroText = `I write code for a living. From time to time I get the hankering to put something out into the world as open source, available to anyone who might want to use it. Here are a couple of those projects.`;
+
 export const CodeContent = ({ posts }: Props) => {
   return (
     <>
-      <p className="measure-wide">
-        I write code for a living. From time to time I get the hankering to put something out into
-        the world as open source, available to anyone who might want to use it. Here are a couple of
-        those projects.
-      </p>
+      <p className="measure-wide">{codeIntroText}</p>
       <div className="measure-wide">
         <ul className="list list--inline">
           {posts.map((post) => {
@@ -35,7 +33,7 @@ export const CodeContent = ({ posts }: Props) => {
 
 const Code: NextPage<Props> = ({ posts }: Props) => {
   const title = `Ty Carlson | Code`;
-  const description = `List of code projects I'm proud of.`;
+  const description = codeIntroText;
 
   return (
     <>
