@@ -295,6 +295,36 @@ ul.list--inline li {
   margin: 0 1.6rem 1.6rem 0;
 }
 
+ul.list--bullet {
+  list-style-position: inside;
+}
+
+ul.list--bullet li {
+  list-style: initial;
+  list-style-position: inside;
+  margin: 0 0 1rem 0;
+}
+
+ul.list--columns {
+  column-count: 1;
+}
+
+ul.list--columns li {
+  break-inside: avoid;
+}
+
+@media screen and (min-width: 40rem) {
+  ul.list--columns {
+    column-count: 2;
+  }
+}
+
+@media screen and (min-width: 60rem) {
+  ul.list--columns {
+    column-count: 3;
+  }
+}
+
 .readingList ul li p {
   margin: 0;
 }

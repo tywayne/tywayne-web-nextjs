@@ -35,8 +35,8 @@ export const PhotographyContent = ({ posts }: Props) => {
         much more money on this hobby!
       </p>
 
-      <div className="measure-wide">
-        <ul className="list">
+      <div>
+        <ul className="list list--columns">
           {posts.map((post) => {
             return (
               <li key={post.slug}>

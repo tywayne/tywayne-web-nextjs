@@ -8,8 +8,9 @@ export const generateFeed = async () => {
   const fields = ['title', 'date', 'slug', 'layout', 'excerpt', 'published'];
   const readingPosts = await getAllPublishedPosts('reading', fields);
   const photoPosts = getAllPublishedPosts('photography', fields);
+  const codePosts = getAllPublishedPosts('code', fields);
 
-  const allPosts = [...readingPosts, ...photoPosts].sort(
+  const allPosts = [...readingPosts, ...photoPosts, ...codePosts].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
 

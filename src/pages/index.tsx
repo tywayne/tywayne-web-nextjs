@@ -6,12 +6,15 @@ import { generateFeed } from '../lib/generateFeed';
 import { Layout } from '../components';
 import { ReadingContent } from './reading';
 import { PhotographyContent } from './photography';
+import { CodeContent } from './code';
 import ReadingType from '../types/reading';
 import PhotosType from '../types/photos';
+import CodeType from '../types/code';
 
 type Props = {
   readingPosts: ReadingType[];
   photosPosts: PhotosType[];
+  codePosts: CodeType[];
 };
 
 export const HomeContent = () => {
@@ -37,7 +40,7 @@ export const HomeContent = () => {
   );
 };
 
-const Home: NextPage<Props> = ({ readingPosts, photosPosts }: Props) => {
+const Home: NextPage<Props> = ({ readingPosts, photosPosts, codePosts }: Props) => {
   return (
     <>
       <Head>
@@ -54,6 +57,10 @@ const Home: NextPage<Props> = ({ readingPosts, photosPosts }: Props) => {
         <hr />
         <h2>photography</h2>
         <PhotographyContent posts={photosPosts} />
+
+        <hr />
+        <h2>code</h2>
+        <CodeContent posts={codePosts} />
       </Layout>
     </>
   );
@@ -82,11 +89,19 @@ export async function getStaticProps() {
     'excerpt',
   ]);
 
-  return {
-    props: { readingPosts, photosPosts },
-  };
+  const codePosts = getAllPublishedPosts('code', [
+    'title',
+    'date',
+    'slug',
+    'author',
+    'published',
+    'excerpt',
+    'link',
+  ]);
 
-  return { props: {} };
+  return {
+    props: { readingPosts, photosPosts, codePosts },
+  };
 }
 
 export default Home;
