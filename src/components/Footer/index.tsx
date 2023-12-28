@@ -14,21 +14,11 @@ import {
 import styles from './Footer.module.css';
 
 export const DARK_MODE_KEY = 'DARK_MODE';
-export const BLURB_ARRAY = [
-  'Sorry about my thighs',
-  'Eat the rich',
-  'Men of quality fight for gender equality',
-  'Public verdict not a boast',
-  'Assume best intentions',
-  'Pray for us, sinners now and at the hour of our death',
-  'Meat is not masculine',
-];
 
 export default function Footer() {
   const darkModePref = useRef<MediaQueryList | null>(null);
 
   const [darkModeEnabled, setDarkModeEnabled] = useState(false);
-  const [blurbText, setBlurbText] = useState('');
 
   const setDarkMode = useCallback((on: boolean, skipStorage: boolean = false) => {
     const styleObj = document.documentElement.style;
@@ -96,10 +86,6 @@ export default function Footer() {
     setDarkMode(enabled, storedValue === null);
   }, [setDarkMode]);
 
-  useEffect(() => {
-    setBlurbText(BLURB_ARRAY[Math.floor(Math.random() * Math.floor(BLURB_ARRAY.length))]);
-  }, [setBlurbText]);
-
   return (
     <footer className={cn(styles.footer, 'container--fluid')}>
       <div className={styles.footerCopy}>
@@ -108,11 +94,6 @@ export default function Footer() {
           <button className={styles.darkModeToggle} onClick={handleClickToggle}>
             Turn the lights {darkModeEnabled ? 'ON' : 'OFF'}
           </button>
-        </p>
-        <p>
-          <em>
-            <small className={styles.footerBlurb}>{blurbText}</small>
-          </em>
         </p>
       </div>
       <ul className={styles.footerNav}>
