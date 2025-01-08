@@ -5,11 +5,11 @@ import Link from 'next/link';
 
 import {
   InstagramIcon,
-  TwitterIcon,
   GithubIcon,
   EmailIcon,
   BaseballIcon,
   RssIcon,
+  BlueSkyIcon,
 } from '../../assets';
 import styles from './Footer.module.css';
 
@@ -104,9 +104,9 @@ export default function Footer() {
           </a>
         </li>
         <li>
-          <a href="https://twitter.com/tywayne" title="Twitter">
-            <span className="visually-hidden">View me on Twitter</span>
-            <TwitterIcon />
+          <a href="https://bsky.app/profile/tywayne.com" title="BlueSkey">
+            <span className="visually-hidden">View me on BlueSky</span>
+            <BlueSkyIcon />
           </a>
         </li>
         <li>

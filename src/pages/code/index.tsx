@@ -21,7 +21,13 @@ export const CodeContent = ({ posts }: Props) => {
           {posts.map((post) => {
             return (
               <li key={post.slug}>
-                <Link href={`code/${post.slug}`}>{post.title}</Link>
+                {post.archived ? (
+                  <span className="strikethrough">
+                    <Link href={`code/${post.slug}`}>{post.title}</Link>
+                  </span>
+                ) : (
+                  <Link href={`code/${post.slug}`}>{post.title}</Link>
+                )}
               </li>
             );
           })}
@@ -62,6 +68,7 @@ export async function getStaticProps() {
     'slug',
     'author',
     'published',
+    'archived',
     'excerpt',
     'link',
   ]);
