@@ -4,6 +4,7 @@ layout: code
 published: true
 date: '2022-12-29T03:53:00.000Z'
 excerpt: Lambda function, deployable to AWS Lambda for deleting tweets after a number of days.
+archived: true
 link: https://github.com/tywayne/delete-tweets
 twitter_card: summary
 ---

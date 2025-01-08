@@ -34,7 +34,11 @@ function CodeItem({ post }: Props) {
             <meta property="og:description" content={description} />
           </Head>
           <h1 className="h2">{post.title}</h1>
-          <a href={post.link}>&Dagger; View on Github</a>
+          {post.archived ? (
+            <strike><a href={post.link}>&Dagger; View on Github</a></strike>
+          ) : (
+            <a href={post.link}>&Dagger; View on Github</a>  
+          )}
           <hr />
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </article>
@@ -62,6 +66,7 @@ export async function getStaticProps({ params }: Params) {
     'author',
     'content',
     'excerpt',
+    'archived'
     'link',
   ]);
   const content = await markdownToHtml(post.content || '');
