@@ -5,6 +5,7 @@ type CodeType = {
   author: string;
   content: string;
   excerpt: string;
+  archived: boolean;
   link: string;
 };
 

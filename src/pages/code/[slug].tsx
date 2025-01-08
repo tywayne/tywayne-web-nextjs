@@ -35,7 +35,9 @@ function CodeItem({ post }: Props) {
           </Head>
           <h1 className="h2">{post.title}</h1>
           {post.archived ? (
-            <strike><a href={post.link}>&Dagger; View on Github</a></strike>
+            <span className="strikethrough">
+              <a href={post.link}>&Dagger; View on Github</a>
+            </span>
           ) : (
             <a href={post.link}>&Dagger; View on Github</a>  
           )}
@@ -66,7 +68,7 @@ export async function getStaticProps({ params }: Params) {
     'author',
     'content',
     'excerpt',
-    'archived'
+    'archived',
     'link',
   ]);
   const content = await markdownToHtml(post.content || '');

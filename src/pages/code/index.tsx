@@ -22,9 +22,9 @@ export const CodeContent = ({ posts }: Props) => {
             return (
               <li key={post.slug}>
                 {post.archived ? (
-                  <strike>
+                  <span className="strikethrough">
                     <Link href={`code/${post.slug}`}>{post.title}</Link>
-                  </strike>
+                  </span>
                 ) : (
                   <Link href={`code/${post.slug}`}>{post.title}</Link>
                 )}

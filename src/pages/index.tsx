@@ -100,6 +100,7 @@ export async function getStaticProps() {
     'author',
     'published',
     'excerpt',
+    'archived',
     'link',
   ]);
 

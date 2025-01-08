@@ -40,6 +40,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+.strikethrough {
+  text-decoration: line-through;
+}
+
 img {
   max-width: 100%;
   height: auto;
