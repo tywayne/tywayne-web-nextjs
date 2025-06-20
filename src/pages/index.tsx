@@ -32,7 +32,7 @@ export const HomeContent = () => {
       </p>
 
       <p>
-        I currently live in Oklahoma City, OK with my wife (Lauren), son (Liam), and daughter
+        I currently live in Connecticut with my wife (Lauren), son (Liam), and daughter
         (Remi).
       </p>
 
